@@ -111,29 +111,9 @@ public class StudentTreeSet {
 
   private class StudentComparator implements Comparator<Student> {
     public int compare(Student left, Student right) {
-      //make the students strings
-      String sl = left.toString();
-      String sr = right.toString();
-      int count = 0;
-      //make sure that there are no exceptions in for loop
-      if (sl.length() < sr.length())
-        count = sl.length();
-      else
-        count = sr.length();
-      //check alphabetical order for the strings
-      for (int i = 0; i < count; i++){
-        if (sl.charAt(i) < sr.charAt(i))
-          return -1;
-        else if (sl.charAt(i) > sr.charAt(i))
-          return 1;
-      }
-      //if same alphabetically but different lengths, the shorter one is smaller
-      if (sl.length() < sr.length())
-        return -1;
-      else if (sl.length() > sr.length())
-        return 1;
-      //same size and value
-      return 0;
+      String l = left.getLastName() + left.getFirstName() + left.getId();
+      String r = right.getLastName() + right.getFirstName() + right.getId();
+      return l.compareTo(r);
     }
   }
 //--------------------------------------------------------------------------------------------------------------------
@@ -196,8 +176,6 @@ public class StudentTreeSet {
     if (n.right == null)
       return n.value;
     else
-      return minValue(n.right);
+      return maxValue(n.right);
   }
 }
-
-//----------------------------------------------------------------------------------------------------------------------

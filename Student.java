@@ -1,3 +1,4 @@
+//Jacob McAfoos
 public class Student {
   private String firstName;
   private String lastName;
@@ -36,4 +37,5 @@ public class Student {
   public int getId() {
     return this.idNumber;
   }
+
 }
